@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ForoComponent } from './core/foro/foro.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     ComponentepruebaComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ForoComponent
   ],
   imports: [
     BrowserModule,
