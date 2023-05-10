@@ -1,0 +1,35 @@
+<header>
+  <img src="assets/imagenes/vv1.png" alt="Logo de mi sitio web">
+    <div class="container"></div>
+    <div class = "row">
+      <div class="col-md-3 col-sm-3 col-3">
+        
+    
+      </div>
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <div class="menu_icon" [class.menu_icon_Class]="menu_icon_variable" (click)="openMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu"[class.menuClass]="menuVariable">
+          <ul>
+            <li>Inicio</li>
+            <li>Juegos</li>
+            <li>Sobre nosotros</li>
+            <li>Foro</li>
+          </ul>
+        </div>
+    
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn" (click)="toggleDropdown()">Más opciones</button>
+      <div class="dropdown-content" [ngClass]="{'show': isDropdownOpen}">
+        <p href="#" (click)="cerrarSesion()">Cerrar sesión</p>
+        <p href="#" (click)="miPerfil()"> Mi perfil</p>
+      </div>
+    </div>
+    
+    
+    </header>
