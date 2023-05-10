@@ -1,0 +1,21 @@
+<div class="container py-5">
+    <div class="card p2">
+        <form class="mx-auto mb-5"  #form="ngForm" (ngSubmit)="login(form)">
+        <div class="logo p-4">
+            <img src="/favicon.ico">
+        </div>
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" class="form-control" [(ngModel)]="creds.email">
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" class="form-control" [(ngModel)]="creds.password">
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-lg btn-danger">Login</button>
+        </div>
+        <a href="">Reset password?</a>
+    </form>
+    </div>
+</div>
