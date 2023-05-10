@@ -1,20 +1,24 @@
 <div class="container py-5">
-    <form class="mx-auto" style="max-width: 25rem;" #form="ngForm" (ngSubmit)="register(form)">
-        <h1 class="mb-5 text-center">TransferGames</h1>
-        <div class="mb-3">
-            <label for="text">Name</label>
-            <input id="name" name="name" type="text" class="form-control" [(ngModel)]="creds.name">
-        </div>
-        <div class="mb-3">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" class="form-control" [(ngModel)]="creds.email">
-        </div>
-        <div class="mb-3">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" class="form-control" [(ngModel)]="creds.password">
-        </div>
-        <div class="d-grid">
-            <button class="btn btn-lg btn-primary">Register</button>
-        </div>
-    </form>
+    <div class="card p-4">  
+        <form class="mx-auto" style="max-width: 25rem;" #form="ngForm" (ngSubmit)="register(form)">
+            <div class="d-flex justify-content-center">
+            <img src="favicon.ico"/>
+            </div>
+            <div class="mb-3">
+                <label for="text">Name</label>
+                <input id="name" name="name" type="text" size="25" class="form-control" [(ngModel)]="creds.name">
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" size="25" class="form-control" [(ngModel)]="creds.email">
+            </div>
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" size="25" class="form-control" [(ngModel)]="creds.password">
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-lg btn-danger">Register</button>
+            </div>
+        </form>
+    </div>    
 </div>

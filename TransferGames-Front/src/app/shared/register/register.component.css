@@ -1,0 +1,26 @@
+*{
+    font-family: 'Rajdhani', sans-serif;
+}
+label{
+    font-size: 20px;
+}
+img{
+    width: 125px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 23%;
+    box-shadow: 8px 8px 20px brown ;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 800px) {
+    .card{
+        width: 100%;
+    }
+}

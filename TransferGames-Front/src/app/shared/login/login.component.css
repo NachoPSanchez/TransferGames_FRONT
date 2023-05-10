@@ -20,14 +20,14 @@ img{
     justify-content: center;
 }
 .card{
-    width: 40%;
+    width: 23%;
     box-shadow: 8px 8px 20px brown ;
 }
 .container{
     display: flex;
     justify-content: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .card{
         width: 100%;
     }
