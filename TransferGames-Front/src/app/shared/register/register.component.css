@@ -7,10 +7,7 @@ label{
 img{
     width: 125px;
 }
-.logo{
-    display: flex;
-    justify-content: center;
-}
+
 .card{
     width: 23%;
     box-shadow: 8px 8px 20px brown ;
