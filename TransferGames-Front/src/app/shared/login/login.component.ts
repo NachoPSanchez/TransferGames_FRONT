@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Credentials } from 'src/app/core/models/credentials';
 import { LoginCredentials } from 'src/app/core/models/loginCredentials';
 import { LoginService } from 'src/app/core/services/login.service';
@@ -16,21 +16,27 @@ export class LoginComponent {
     email:'',
     password:''
   };
+  credsWithName: Credentials = {
+    email: '',
+    password: '',
+    name: ''
+  }
 
 
   constructor(private loginService: LoginService, private router: Router){ }
 
-
   login(form: NgForm){
-    console.log(this.creds);
     this.loginService.login(this.creds)
       .subscribe(response =>{
         Swal.fire({
-          title: 'Login sucessfull',
+          title: `Login successful`,
+          text: 'Welcome again to TransferGames Community!',
           icon: 'success'
-        });
-        this.router.navigate(['home']);
+        }).then(
+          () => {
+            this.router.navigate(['home']);
+          }
+        );
       });
   }
-
 }
