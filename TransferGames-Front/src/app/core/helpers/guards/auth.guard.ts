@@ -22,7 +22,13 @@ export class AuthGuard implements CanActivate {
                 title: 'Oops...',
                 text: 'You are not logged in',
                 confirmButtonText: 'Ok'
-            });
+            }).then(
+                (result) => {
+                    if (result.isConfirmed) {
+                        this.router.navigate(['/login']);
+                    }
+                }
+            );
             this.state = false;
         }
         return this.state;

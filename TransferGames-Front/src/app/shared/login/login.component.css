@@ -21,7 +21,7 @@ img{
 }
 .card{
     width: 23%;
-    box-shadow: 8px 8px 20px brown ;
+    box-shadow: 8px 8px 20px rgb(216, 1, 1),8px 8px 25px rgb(33, 8, 255) ;
 }
 .container{
     display: flex;

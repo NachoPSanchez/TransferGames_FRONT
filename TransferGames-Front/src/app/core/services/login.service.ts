@@ -1,18 +1,24 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { LoginCredentials } from '../models/loginCredentials';
+import { Credentials } from '../models/credentials';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-
+  private urlUser= "http://localhost:8080/user";
   private isAuthenticated = false;
 
   constructor(private httpClient: HttpClient) { }
 
+  getByEmail(email: string):Observable<Credentials>{
+    const encodedEmail = encodeURIComponent(email);
+    const sanitizedEmail = encodedEmail.replace(/%40/g, '@');
+    return this.httpClient.get<Credentials>(`${this.urlUser}/${sanitizedEmail}`);
+  }
 
   login(creds: LoginCredentials) {
     return this.httpClient.post('http://localhost:8080/login', creds, {
