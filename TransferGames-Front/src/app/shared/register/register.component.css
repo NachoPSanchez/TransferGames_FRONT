@@ -9,15 +9,22 @@ img{
 }
 
 .card{
-    width: 23%;
+    width: 26%;
     box-shadow: 8px 8px 20px rgb(216, 1, 1),8px 8px 25px rgb(33, 8, 255) ;
 }
-.container{
+.contenedor{
     display: flex;
     justify-content: center;
+    padding-top: 25px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
     .card{
-        width: 100%;
+        width: 50%;
     }
 }
+@media screen and (max-width: 600px) {
+    .card{
+        width: 80%;
+    }
+}
+
