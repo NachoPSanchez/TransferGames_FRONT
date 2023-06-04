@@ -9,16 +9,10 @@ import { Credentials } from '../models/credentials';
 })
 export class LoginService {
 
-  private urlUser= "http://localhost:8080/user";
   private isAuthenticated = false;
 
   constructor(private httpClient: HttpClient) { }
 
-  getByEmail(email: string):Observable<Credentials>{
-    const encodedEmail = encodeURIComponent(email);
-    const sanitizedEmail = encodedEmail.replace(/%40/g, '@');
-    return this.httpClient.get<Credentials>(`${this.urlUser}/${sanitizedEmail}`);
-  }
 
   login(creds: LoginCredentials) {
     return this.httpClient.post('http://localhost:8080/login', creds, {

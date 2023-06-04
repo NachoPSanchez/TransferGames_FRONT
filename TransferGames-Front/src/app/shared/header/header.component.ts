@@ -45,7 +45,7 @@ toggleDropdown() { //desplegable del header
   this.isDropdownOpen = !this.isDropdownOpen;
 }
 
-miPerfil(){
-  
+getUserROL(): string | null{
+  return localStorage.getItem('user_ROL');
 }
 }

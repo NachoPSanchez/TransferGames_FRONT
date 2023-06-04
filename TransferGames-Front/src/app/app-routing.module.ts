@@ -7,6 +7,8 @@ import { ForoComponent } from './core/components/views/foro/foro.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { HomeComponent } from './core/components/views/home/home.component';
+import { AdministracionComponent } from './core/components/views/administracion/administracion.component';
+import { AuthRolGuard } from './core/helpers/guards/auth-rol.guard';
 
 
 const routes: Routes = [
@@ -15,6 +17,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'home',component: HomeComponent},
+  {path:'administracion',component: AdministracionComponent, canActivate: [AuthRolGuard]},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

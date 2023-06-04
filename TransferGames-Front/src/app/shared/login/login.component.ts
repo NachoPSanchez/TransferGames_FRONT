@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Credentials } from 'src/app/core/models/credentials';
 import { LoginCredentials } from 'src/app/core/models/loginCredentials';
 import { LoginService } from 'src/app/core/services/login.service';
+import { UserService } from 'src/app/core/services/user.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent {
   credsWithName: Credentials = {
     email: '',
     password: '',
-    name: ''
+    name: '',
+    roles:[]
   }
 
 
@@ -38,5 +40,6 @@ export class LoginComponent {
           }
         );
       });
+      
   }
 }
