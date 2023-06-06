@@ -15,6 +15,7 @@ import { HomeComponent } from './core/components/views/home/home.component';
 import { ForoComponent } from './core/components/views/foro/foro.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AdministracionComponent } from './core/components/views/administracion/administracion.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AdministracionComponent } from './core/components/views/administracion/
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    CarouselModule
+    CarouselModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

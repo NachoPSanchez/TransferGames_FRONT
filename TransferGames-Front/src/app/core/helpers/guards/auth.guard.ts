@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { CanActivate, Router } from "@angular/router";
 import { LoginService } from "../../services/login.service";
 import Swal from "sweetalert2";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable({
     providedIn: 'root'
@@ -9,29 +10,23 @@ import Swal from "sweetalert2";
 })
 
 export class AuthGuard implements CanActivate {
+ 
     private state: boolean = false;
+    private isFirstTimeLoginKey = 'isFirstTimeLogin';
 
-    constructor(private loginService: LoginService, private router: Router) { }
+    constructor(private loginService: LoginService, private router: Router, private toastr: ToastrService) { }
 
     canActivate(): boolean {
         if (this.loginService.isLoggedIn()) {
             this.state = true;
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'You are not logged in',
-                confirmButtonText: 'Ok'
-            }).then(
-                (result) => {
-                    if (result.isConfirmed) {
-                        this.router.navigate(['/login']);
-                    }
-                }
-            );
+            this.toastr.error('You are not logged in.', 'Oops...', {
+                timeOut: 3000,
+              });
             this.state = false;
         }
         return this.state;
-    }
+    }   
 
+        
 }
