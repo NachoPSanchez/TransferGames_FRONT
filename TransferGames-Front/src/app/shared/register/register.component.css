@@ -16,6 +16,7 @@ img{
     display: flex;
     justify-content: center;
     padding-top: 25px;
+    padding-bottom: 50px;
 }
 @media screen and (max-width: 1200px) {
     .card{
