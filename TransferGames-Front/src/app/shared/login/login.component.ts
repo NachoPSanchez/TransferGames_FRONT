@@ -39,7 +39,13 @@ export class LoginComponent {
           
         });
               
+      }, (error)=>{
+        this.toastr.error(error.error.slice(7), 'Error', {
+          timeOut: 4000,
+          
+        });
       });
+    
       
   }
 }
