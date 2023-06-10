@@ -59,9 +59,9 @@ export class AuthService {
       name: user.name,
       email:user.email,
       password:user.password,
-      rol:user.rol
+      roleId:user.roleId
     }
-    return this.http.post<UserResponse>(url,body);
+    return this.http.post<UserRegister>(url,body);
   }
   loggedUser():Observable<UserResponse>{
     let url=environment.baseUrl+"api/v1/auth";

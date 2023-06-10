@@ -69,15 +69,9 @@ export class LoginComponent implements OnInit {
         },
         error: err => {
           this.serviceAuth.emitirEventoLogin(false);
-          if (err.status == 0) {
-            this.toastr.error(err.message, 'Error', {
-              timeOut: 4000,
-            });
-          } else {
-            this.toastr.error(err.message, 'Error', {
-              timeOut: 4000,
-            });
-          }
+          this.toastr.error(err.error.message, 'Error', {
+            timeOut: 4000,
+          });
         }
       });
     }

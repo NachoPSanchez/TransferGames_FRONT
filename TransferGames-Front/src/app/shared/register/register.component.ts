@@ -15,7 +15,7 @@ export class RegisterComponent {
     name:'',
     email:'',
     password:'',
-    rol:''
+    roleId:''
   };
   
   constructor(private serviceAuth: AuthService, private router: Router, private toastr: ToastrService){}
@@ -25,16 +25,17 @@ export class RegisterComponent {
       name: this.creds.name,
       email: this.creds.email,
       password: this.creds.password,
-      rol: ''
+      roleId: this.creds.roleId
     };
     this.serviceAuth.register(data).subscribe({
       next: () => {
         this.router.navigateByUrl("/home")
       },
       error: (err) => {
-        this.toastr.error(err.message, 'Error', {
+        this.toastr.error(err.error.message, 'Error', {
           timeOut: 4000,
         });
+        console.log(err);
       }
     });
   }
