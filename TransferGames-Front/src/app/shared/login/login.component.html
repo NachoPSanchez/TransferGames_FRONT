@@ -1,16 +1,16 @@
 <div class="contenedor">
     <div class="card p2">
-        <form class="mx-auto mb-5"  #form="ngForm" (ngSubmit)="login(form)">
+        <form class="mx-auto mb-5"  #form="ngForm" (ngSubmit)="login()">
         <div class="logo p-4">
             <img src="/favicon.ico">
         </div>
         <div class="mb-3">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" size="25" class="form-control" [(ngModel)]="creds.email">
+            <input id="email" name="email" type="email" size="25" class="form-control" [(ngModel)]="dataLogin.email">
         </div>
         <div class="mb-3">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" size="25" class="form-control" [(ngModel)]="creds.password">
+            <input id="password" name="password" type="password" size="25" class="form-control" [(ngModel)]="dataLogin.password">
         </div>
         <div class="d-grid">
             <button class="btn btn-lg btn-danger">Login</button>
@@ -19,4 +19,4 @@
         <a href="">Reset password?</a>
     </form>
     </div>
-</div><
+</div>

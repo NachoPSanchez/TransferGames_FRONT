@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Credentials } from '../models/credentials';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from '../models/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,11 @@ export class UserService {
 
   findRolUser(){
     let token = localStorage.getItem('token')!;
-    return this.jwt.decodeToken(token).roles[0].authority;
+    return this.jwt.decodeToken(token).rol;
   }
-  getByEmail(email: string):Observable<Credentials>{
+  getByEmail(email: string):Observable<User>{
     const encodedEmail = encodeURIComponent(email);
     const sanitizedEmail = encodedEmail.replace(/%40/g, '@');
-    return this.httpClient.get<Credentials>(`${this.urlUser}/${sanitizedEmail}`);
+    return this.httpClient.get<User>(`${this.urlUser}/${sanitizedEmail}`);
   }
 }

@@ -1,51 +1,84 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthGuard } from 'src/app/core/helpers/guards/auth.guard';
-import { Credentials } from 'src/app/core/models/credentials';
+import { AuthResponse } from 'src/app/core/models/auth-response.interface';
 import { LoginCredentials } from 'src/app/core/models/loginCredentials';
-import { LoginService } from 'src/app/core/services/login.service';
-import { UserService } from 'src/app/core/services/user.service';
-import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/core/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  creds: LoginCredentials = {
-    email:'',
-    password:''
-  };
-  credsWithName: Credentials = {
-    email: '',
-    password: '',
-    name: '',
-    roles:[]
-  }
-  isFirstTimeLogin: boolean = false;
+export class LoginComponent implements OnInit {
 
+  userDetails!: AuthResponse | null;
+    eye: boolean = false;
+    type: string = 'password';
 
-  constructor(private loginService: LoginService, private router: Router, private toastr : ToastrService, private authGuard : AuthGuard){ }
+  constructor(private toastr : ToastrService,
+    private serviceAuth: AuthService, 
+    private formBuilder: FormBuilder, 
+    private router:Router){ }
 
-  login(form: NgForm){
-    this.loginService.login(this.creds)
-      .subscribe(() =>{
-        this.router.navigate(['home']);           
-        this.toastr.success('This is Transfer Games community.', 'Welcome again', {
-          timeOut: 4000,
-          
-        });
+    ngOnInit(): void {
+        this.removeRolIfExists();
+    }
+
+    dataLogin: LoginCredentials = {
+      email: '',
+      password: '',
+    }
+    togleEye(){
+      if(this.eye === false){
+        this.eye = true;
+        this.type = 'text';
+      }else{
+        this.eye = false;
+        this.type = 'password';
+      }
+    }
+    removeTokenIfExists(){
+      if(localStorage.getItem('token')) localStorage.removeItem('token')
+    }
+    removeRolIfExists(){
+      if(localStorage.getItem('ROLE')) localStorage.removeItem('ROLE')
+    }
+    login(){
+      const data:LoginCredentials={
+      "email": this.dataLogin.email,
+      "password": this.dataLogin.password
+      }
+      this.serviceAuth.login(data).subscribe({
+        next: resp => {
+          let respuesta:any = resp;
+          if(respuesta.error){ 
+            this.toastr.error(respuesta.error, 'Error', {
+              timeOut: 4000,
               
-      }, (error)=>{
-        this.toastr.error(error.error.slice(7), 'Error', {
-          timeOut: 4000,
-          
-        });
+            });
+          } else {
+            //redirigir y guardar el token en el localStorage 
+            localStorage.setItem("token", resp.jwt_token);
+            this.serviceAuth.emitirEventoLogin(true);
+            this.router.navigateByUrl("/home");
+          }
+         
+        },
+        error: err => {
+          this.serviceAuth.emitirEventoLogin(false);
+          if (err.status == 0) {
+            this.toastr.error(err.message, 'Error', {
+              timeOut: 4000,
+            });
+          } else {
+            this.toastr.error(err.message, 'Error', {
+              timeOut: 4000,
+            });
+          }
+        }
       });
-    
-      
-  }
+    }
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
-import { AuthGuard } from 'src/app/core/helpers/guards/auth.guard';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { FirstTimeService } from 'src/app/core/services/first-time.service';
-import { LoginService } from 'src/app/core/services/login.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -18,7 +16,7 @@ export class HomeComponent implements OnInit {
   isFirstTime: boolean;
 
 
-  constructor(private loginService: LoginService, private userService: UserService, private firstTimeService: FirstTimeService, toastrService: ToastrService, private authGuard: AuthGuard) {
+  constructor(private userService: UserService, private firstTimeService: FirstTimeService, toastrService: ToastrService, private authService:AuthService) {
     this.isFirstTime = this.firstTimeService.isFirstTime();
     if(this.isFirstTime ){
       toastrService.info('Login to enjoy full web', 'Remember', {
@@ -31,7 +29,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-   if(this.loginService.getToken != null){
+   if(this.authService.getToken != null){
     this.userService.getByEmail
    }
 
@@ -67,7 +65,9 @@ export class HomeComponent implements OnInit {
 
   findRol(){
     this.rol = this.userService.findRolUser();
-    localStorage.setItem('user_ROL', this.rol);
+    if(this.authService.isLogged()){
+      localStorage.setItem('user_ROL', this.rol);
+    }
   }
   
 }

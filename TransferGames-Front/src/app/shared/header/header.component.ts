@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Credentials } from 'src/app/core/models/credentials';
-import { LoginService } from 'src/app/core/services/login.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,7 +12,7 @@ export class HeaderComponent {
   title = 'header'
   isDropdownOpen = false;
  
-  constructor(private loginService: LoginService, private router: Router){}
+  constructor(private authService: AuthService, private router: Router){}
   menuVariable:boolean = false;
   menu_icon_variable:boolean= false;
 
@@ -23,7 +22,7 @@ openMenu(){
   this.menu_icon_variable =! this.menu_icon_variable;
 }
 isLoggedIn(){
-  return this.loginService.getToken();
+  return this.authService.getToken();
 }
 logout(){
   Swal.fire({
@@ -38,7 +37,7 @@ logout(){
         }
     }
 );
-  this.loginService.logout();
+  this.authService.logOut();
 }
 
 toggleDropdown() { //desplegable del header
