@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
   }
 
   findRol(){
-    this.rol = this.userService.findRolUser();
     if(this.authService.isLogged()){
+      this.rol = this.userService.findRolUser();
       localStorage.setItem('user_ROL', this.rol);
     }
   }
