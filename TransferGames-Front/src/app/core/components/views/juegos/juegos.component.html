@@ -2,6 +2,7 @@
     <h1> {{juego.nombre}} </h1>
     <h4> {{juego.descripcion}} </h4>
     <img [src] = "getSafeImageUrl(juego.image)" alt="Imagen" />
+    <button (click)="setActualGameId(juego.id)">Jugar</button>
     
   
 </div>

@@ -24,5 +24,15 @@ export class JuegosComponent implements OnInit {
   getSafeImageUrl(imageBase64: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + imageBase64);
   }
+
+  setActualGameId(gameId: number | undefined): void {
+    if(gameId != null){
+    localStorage.setItem('gameId',gameId.toString());
+    }
+  }
+
+  openGame(idGame: number){
+
+  }
   
 }

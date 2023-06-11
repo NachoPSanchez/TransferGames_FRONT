@@ -16,6 +16,7 @@ import { ForoComponent } from './core/components/views/foro/foro.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AdministracionComponent } from './core/components/views/administracion/administracion.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JuegoComponent } from './core/components/views/juegos/juego/juego.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ForoComponent,
     AdministracionComponent,
+    JuegoComponent,
   ],
   imports: [
     BrowserModule,
