@@ -35,9 +35,9 @@
     border: 1px solid #f2f2f2;
     background-image: url(../../../assets/img/icon_social_fb.png);
     background-position: center;
-    background-size: 40%;
+    background-size: 50%;
     background-repeat: no-repeat;
-    margin: 1rem;
+    margin: 1rem;    
 }
 
 .social-icon:hover{
@@ -54,13 +54,14 @@
 }
 
 .social-icon:nth-of-type(4){
-    background-image: url(../../../assets/img/icon_social_ig.png);
+    background-image: url(../../../assets/img/icon_social_twt.png);
 }
 
 .footer-menu{
     list-style-type: none;
     color: #f2f2f2;
     font-size: 18px;
+    margin-right: 20px;
 }
 
 .menu-item{

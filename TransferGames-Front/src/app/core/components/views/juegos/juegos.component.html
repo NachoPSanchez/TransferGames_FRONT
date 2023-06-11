@@ -1,3 +1,7 @@
-<div class="card">
-    <iframe src="https://nachopsanchez.github.io/RanaMan/" frameborder="0"></iframe>
+<div class="card"  *ngFor="let juego of juegos">
+    <h1> {{juego.nombre}} </h1>
+    <h4> {{juego.descripcion}} </h4>
+    <img [src] = "getSafeImageUrl(juego.image)" alt="Imagen" />
+    
+  
 </div>
