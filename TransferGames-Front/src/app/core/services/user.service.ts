@@ -42,4 +42,9 @@ export class UserService {
     let path = environment.baseUrl + '/user/' + id + '/image';
     return this.httpClient.put<UserResponse>(path, userImg);
   }
+  deleteUser(id:number): Observable<UserResponse>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`);
+    return this.httpClient.delete<UserResponse>(`${this.urlAdminUser}/${id}`, {headers});
+  }
 }

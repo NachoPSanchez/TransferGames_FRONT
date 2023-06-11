@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environment';
 import { Juego } from '../models/juego.interface';
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class JuegoService {
 
   baseUrl = environment.baseUrl + '/juego';
+  baseAdminUrl = environment.baseUrl + '/admin/juego';
 
   constructor(private http : HttpClient) { }
 
@@ -21,7 +22,13 @@ export class JuegoService {
     return this.http.get<Juego>(`${this.baseUrl}/${id}`);
   }
   updateJuego(juego: Juego): Observable<Juego>{
-    return this.http.put<Juego>(`${this.baseUrl}/${juego.id}`, juego);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`);
+    return this.http.put<Juego>(`${this.baseAdminUrl}/${juego.id}`, juego, {headers});
   }
-
+  deleteJuego(id:number): Observable<Juego> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`);
+    return this.http.delete<Juego>(`${this.baseAdminUrl}/${id}`, {headers});
+  }
 }
