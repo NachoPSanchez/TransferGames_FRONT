@@ -20,6 +20,10 @@ export class UserService {
     let token = localStorage.getItem('token')!;
     return this.jwt.decodeToken(token).rol;
   }
+  findIdUser(){
+    let token = localStorage.getItem('token')!;
+    return this.jwt.decodeToken(token).id;
+  }
   getByEmail(email: string):Observable<User>{
     const encodedEmail = encodeURIComponent(email);
     const sanitizedEmail = encodedEmail.replace(/%40/g, '@');

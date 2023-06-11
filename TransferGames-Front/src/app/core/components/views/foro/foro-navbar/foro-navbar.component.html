@@ -2,9 +2,16 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-center">
             <ul class="nav">
-                <li><a routerLink="mensajes" class="px-4">Mensajes</a></li>
-                <li><a routerLink="mi-mensajes" class="px-4">Mis mensajes</a></li>
-                <li><a routerLink="mi-respuestas" class="px-4">Mis respuestas</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-bs-toggle="dropdown" routerLink="mensajes" role="button" aria-haspopup="true" aria-expanded="false">
+                        Mensajes
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="create-mensajes">Crear Mensajes</a>
+                    </div>
+                </li>
+                <li><a routerLink="mis-mensajes" class="px-4">Mis mensajes</a></li>
+                <li><a routerLink="mis-respuestas" class="px-4">Mis respuestas</a></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,21 @@
+<div class="container p-4 d-flex justify-content-center">
+    <div class="card p-3">
+      <form (submit)="createMensaje()">
+      <div class="mb-3">
+        <label class="form-label">Asunto</label>
+        <input type="text" class="form-control" id="asuntoInput" [(ngModel)]="mensaje.asunto" name="asunto">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Texto</label>
+        <textarea type="text" class="form-control" id="textoInput" [(ngModel)]="mensaje.texto" name="texto"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Fecha</label>
+        <input type="date" class="form-control" id="dateInput" [(ngModel)]="mensaje.date" name="date">
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>

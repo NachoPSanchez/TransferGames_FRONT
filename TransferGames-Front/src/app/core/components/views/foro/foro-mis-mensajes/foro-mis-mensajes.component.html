@@ -1,0 +1,16 @@
+<div class="container p-4">
+    <div class="card p-2 mb-5" *ngFor="let mensaje of mensajes">
+        <div class="asunto d-flex">
+            <h3>Asunto: </h3>
+            <h3>{{mensaje.asunto}}</h3>
+        </div>
+        <div class="mensaje d-flex">
+            <p>Mensaje: </p>
+            <p>{{mensaje.texto}}</p>
+        </div>
+        <div class="fecha d-flex">
+            <p>Fecha: </p>
+            <p>{{mensaje.date}}</p>
+        </div>
+    </div>
+</div>
