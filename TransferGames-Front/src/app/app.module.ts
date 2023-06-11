@@ -23,6 +23,7 @@ import { AlertFill, AlertOutline, DoubleRightOutline, PlayCircleFill, PlayCircle
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
+
 const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
 
 
