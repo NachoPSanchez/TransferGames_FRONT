@@ -2,7 +2,15 @@
     <h1> {{juego.nombre}} </h1>
     <h4> {{juego.descripcion}} </h4>
     <img [src] = "getSafeImageUrl(juego.image)" alt="Imagen" />
-    <button (click)="setActualGameId(juego.id)">Jugar</button>
+
+    <br>
     
+    <button nz-button nzType="primary" (click)="loadTwo(juego.id)" [nzLoading]="isLoadingTwo">
+        <span span nz-icon nzType="play-circle" nzTheme="outline">Jugar</span>        
+      </button>
+
+
+    <button nz-button nzType="primary" [nzSize]="size" nzShape="round"><span nz-icon nzType="play-circle" nzTheme="outline">Jugar</span></button>
+
   
 </div>

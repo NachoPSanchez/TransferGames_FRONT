@@ -20,3 +20,12 @@ color: aliceblue;
 h4{
     color: aliceblue;
 }
+
+[nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+  }
+
+  nz-button-group [nz-button] {
+    margin-right: 0;
+  }

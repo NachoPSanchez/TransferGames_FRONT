@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Juego } from 'src/app/core/models/juego.interface';
 import { JuegoService } from 'src/app/core/services/juego.service';
+import { NzButtonModule, NzButtonSize } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 
 @Component({
   selector: 'app-juegos',
@@ -11,6 +14,8 @@ import { JuegoService } from 'src/app/core/services/juego.service';
 export class JuegosComponent implements OnInit {
 
   juegos: Juego[] = [];
+  size: NzButtonSize = 'large';
+  isLoadingTwo = false;
 
   constructor(private juegoS: JuegoService, private sanitizer: DomSanitizer) { }
 
@@ -31,6 +36,17 @@ export class JuegosComponent implements OnInit {
     }
   }
 
+  loadTwo(gameId: number | undefined): void {
+    this.isLoadingTwo = true;
+    if(gameId != null){
+      localStorage.setItem('gameId',gameId.toString());
+      }
+    setTimeout(() => {
+      this.isLoadingTwo = false;
+    }, 5000);
+  }
+
+ 
   openGame(idGame: number){
 
   }

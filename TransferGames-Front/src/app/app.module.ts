@@ -15,6 +15,15 @@ import { HomeComponent } from './core/components/views/home/home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
 import { JuegoComponent } from './core/components/views/juegos/juego/juego.component';
+import { NzButtonModule} from 'ng-zorro-antd/button'
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzIconDirective } from 'ng-zorro-antd/icon';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { AlertFill, AlertOutline, PlayCircleFill, PlayCircleOutline } from '@ant-design/icons-angular/icons';
+import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
+
+const icons: IconDefinition[] = [ PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
+
 
 
 @NgModule({
@@ -27,6 +36,7 @@ import { JuegoComponent } from './core/components/views/juegos/juego/juego.compo
     JuegosComponent,
     HomeComponent,
     JuegoComponent,
+    PuntuacionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +45,8 @@ import { JuegoComponent } from './core/components/views/juegos/juego/juego.compo
     FormsModule,
     HttpClientModule,
     CarouselModule,
+    NzButtonModule,
+    NzIconModule.forRoot(icons),     
     ToastrModule.forRoot()
   ],
   providers: [],
