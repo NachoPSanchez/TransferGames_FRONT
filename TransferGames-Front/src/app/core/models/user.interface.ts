@@ -6,15 +6,14 @@ export interface User{
     email: string;
     password: string;
     roleId?: string;
-    image?:Uint8Array;
+    image:any;
     juegos?: Juego[];
 }
 export interface UserResponse{
     id: number;
     name: string;
     email: string;
-    image?:Uint8Array;
-    juegos?: Juego[];
+    image:any;
 }
 export interface UserRegister{
     id?: number;
