@@ -15,7 +15,27 @@ export class JuegosComponent implements OnInit {
 
   juegos: Juego[] = [];
   size: NzButtonSize = 'large';
+  isLoadingOne = false;
   isLoadingTwo = false;
+
+  panels = [
+    
+    {
+      active: false,
+      disabled: true,
+      name: 'Descripción',
+      icon: 'double-right',
+      customStyle: {
+        background: '#4b555e',
+        color: '#ffffff',        
+        border: '0px' ,
+        
+      }
+    }
+    
+  ];
+
+
 
   constructor(private juegoS: JuegoService, private sanitizer: DomSanitizer) { }
 
@@ -30,25 +50,33 @@ export class JuegosComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + imageBase64);
   }
 
-  setActualGameId(gameId: number | undefined): void {
+  setActualGameId(gameId: number): void {
     if(gameId != null){
     localStorage.setItem('gameId',gameId.toString());
     }
   }
-
-  loadTwo(gameId: number | undefined): void {
+  loadOne(gameId: number): void {
+    if(gameId != null)
+    this.isLoadingOne = true;
+    this.setGameIdLocalStorage(gameId);    
+    setTimeout(() => {
+      this.isLoadingOne = false;
+    }, 5000);
+  }
+  loadTwo(gameId: number): void {
+    if(gameId != null)
     this.isLoadingTwo = true;
-    if(gameId != null){
-      localStorage.setItem('gameId',gameId.toString());
-      }
+    this.setGameIdLocalStorage(gameId);    
     setTimeout(() => {
       this.isLoadingTwo = false;
     }, 5000);
   }
 
  
-  openGame(idGame: number){
-
+  setGameIdLocalStorage(gameId: number){
+    if(gameId != null){
+      localStorage.setItem('gameId',gameId.toString());
+      }
   }
   
 }

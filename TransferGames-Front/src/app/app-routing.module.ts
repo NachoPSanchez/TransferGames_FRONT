@@ -6,7 +6,7 @@ import { AuthGuard } from './core/helpers/guards/auth.guard';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { HomeComponent } from './core/components/views/home/home.component';
-
+import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
 
 
 const routes: Routes = [
@@ -14,6 +14,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'home',component: HomeComponent},
+  {path:'puntuaciones', component:PuntuacionesComponent},
   {path:'administracion',
   loadChildren: () => 
   import('./core/components/views/administracion/administracion.module').then((m) => m.AdministracionModule)},

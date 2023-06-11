@@ -19,10 +19,11 @@ import { NzButtonModule} from 'ng-zorro-antd/button'
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
-import { AlertFill, AlertOutline, PlayCircleFill, PlayCircleOutline } from '@ant-design/icons-angular/icons';
+import { AlertFill, AlertOutline, DoubleRightOutline, PlayCircleFill, PlayCircleOutline, RightOutline } from '@ant-design/icons-angular/icons';
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
-const icons: IconDefinition[] = [ PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
+const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
 
 
 
@@ -46,6 +47,7 @@ const icons: IconDefinition[] = [ PlayCircleOutline,PlayCircleFill, AlertOutline
     HttpClientModule,
     CarouselModule,
     NzButtonModule,
+    NzCollapseModule,
     NzIconModule.forRoot(icons),     
     ToastrModule.forRoot()
   ],

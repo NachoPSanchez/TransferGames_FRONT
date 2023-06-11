@@ -6,6 +6,7 @@
         <li><a routerLink="home" class="px-4">Home</a></li>
         <li><a routerLink="juegos" class="px-4">Juegos</a></li>
         <li><a routerLink="foro" class="px-4">Foro</a></li>
+        <li><a routerLink="puntuaciones" class="px-4">Puntuaciones</a></li>
       </ul>
       <div class="text-end" *ngIf="isLoggedIn()">
         <button type="button"  (click)="logout()" class="btn btn-warning">Sign off</button>
@@ -27,6 +28,7 @@
         <li><a routerLink="home" class="px-4">Home</a></li>
         <li><a routerLink="juegos" class="px-4">Juegos</a></li>
         <li><a routerLink="foro" class="px-4">Foro</a></li>
+        <li><a routerLink="puntuaciones" class="px-4">Puntuaciones</a></li>
         <li><a routerLink="administracion" class="px-4">Administración</a></li>
       </ul>
       <div class="text-end" *ngIf="isLoggedIn()">
