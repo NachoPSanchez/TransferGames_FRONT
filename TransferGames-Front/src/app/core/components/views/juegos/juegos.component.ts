@@ -4,6 +4,8 @@ import { Juego } from 'src/app/core/models/juego.interface';
 import { JuegoService } from 'src/app/core/services/juego.service';
 import { NzButtonModule, NzButtonSize } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -37,7 +39,7 @@ export class JuegosComponent implements OnInit {
 
 
 
-  constructor(private juegoS: JuegoService, private sanitizer: DomSanitizer) { }
+  constructor(private juegoS: JuegoService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
     this.juegoS.giveJuego().subscribe(data => {
@@ -50,33 +52,39 @@ export class JuegosComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + imageBase64);
   }
 
-  setActualGameId(gameId: number): void {
-    if(gameId != null){
-    localStorage.setItem('gameId',gameId.toString());
-    }
-  }
-  loadOne(gameId: number): void {
-    if(gameId != null)
-    this.isLoadingOne = true;
-    this.setGameIdLocalStorage(gameId);    
-    setTimeout(() => {
-      this.isLoadingOne = false;
-    }, 5000);
-  }
-  loadTwo(gameId: number): void {
-    if(gameId != null)
-    this.isLoadingTwo = true;
-    this.setGameIdLocalStorage(gameId);    
-    setTimeout(() => {
-      this.isLoadingTwo = false;
-    }, 5000);
-  }
-
- 
   setGameIdLocalStorage(gameId: number){
     if(gameId != null){
       localStorage.setItem('gameId',gameId.toString());
       }
   }
+
+  setGameUrl(gameUrl: string){
+    localStorage.setItem('gameUrl',gameUrl);
+  }
+  
+  loadOne(gameId: number, gameUrl: string): void {
+    if(gameId != null)
+    this.isLoadingOne = true;
+    this.setGameIdLocalStorage(gameId);
+    this.setGameUrl(gameUrl);   
+    setTimeout(() => {
+      this.isLoadingOne = false;
+      this.router.navigate(['RanaMan']);
+    }, 3000);
+  }
+
+  loadTwo(gameId: number, gameUrl: string): void {
+    if(gameId != null)
+    this.isLoadingTwo = true;
+    this.setGameIdLocalStorage(gameId);  
+    this.setGameUrl(gameUrl);    
+    setTimeout(() => {
+      this.isLoadingTwo = false;
+      this.router.navigate(['TransferJump']);
+    }, 3000);
+  }
+
+ 
+ 
   
 }

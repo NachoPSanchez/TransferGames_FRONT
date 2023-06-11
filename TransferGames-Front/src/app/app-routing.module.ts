@@ -7,6 +7,7 @@ import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { HomeComponent } from './core/components/views/home/home.component';
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
+import { JuegoComponent } from './core/components/views/juegos/juego/juego.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'home',component: HomeComponent},
+  {path: 'RanaMan', component: JuegoComponent},
+  {path: 'TransferJump', component: JuegoComponent},
   {path:'puntuaciones', component:PuntuacionesComponent},
   {path:'administracion',
   loadChildren: () => 

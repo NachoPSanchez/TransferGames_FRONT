@@ -39,13 +39,13 @@
 
     
 <div class="btn-contenedor">
-    <button nz-button nzType="primary" *ngIf="juego.id == 1" (click)="loadOne(juego.id)" [nzLoading]="isLoadingOne">
+    <button nz-button nzType="primary" *ngIf="juego.id == 1" (click)="loadOne(juego.id, juego.direccion)" [nzLoading]="isLoadingOne">
       <span span nz-icon nzType="play-circle" nzTheme="outline">Jugar</span>
     </button>
 
     
 
-    <button nz-button nzType="primary" *ngIf="juego.id == 2" (click)="loadTwo(juego.id)" [nzLoading]="isLoadingTwo">
+    <button nz-button nzType="primary" *ngIf="juego.id == 2" (click)="loadTwo(juego.id, juego.direccion)" [nzLoading]="isLoadingTwo">
       <span span nz-icon nzType="play-circle" nzTheme="outline">Jugar</span>
     </button>
 </div>
