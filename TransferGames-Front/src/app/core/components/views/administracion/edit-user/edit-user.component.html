@@ -1,9 +1,12 @@
-<div class="container p-4">
-  <div class="card p-2 align-items-center">
-    <form>
+<div class="container p-4 d-flex justify-content-center">
+  <div class="card p-3 align-items-center">
+    <form (submit)="editUser()">
+    <div class="mb-3 image-div">
+      <img [src]="getSafeImageUrl(user.image)" alt="" class="rounded-image">
+    </div>
     <div class="mb-3">
       <label class="form-label">ID</label>
-      <input type="text" class="form-control" id="idInput" [(ngModel)]="user.id" name="id" placeholder="{{user.id}}">
+      <input type="text" class="form-control" id="idInput" [(ngModel)]="user.id" name="id" placeholder="{{user.id}}" readonly>
     </div>
     <div class="mb-3">
       <label class="form-label">Nombre</label>
@@ -15,9 +18,12 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Imagen</label>
-      <input type="file" class="form-control" id="imageInput">
+      <input type="file" class="form-control" id="imageInput" accept="image/png">
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-primary" (click)="backToUsers()">Volver</button>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
   </form>
   </div>
 </div>

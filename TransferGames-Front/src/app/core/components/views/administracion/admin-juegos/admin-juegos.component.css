@@ -1,0 +1,21 @@
+.rounded-image {
+    width: 10rem;
+}
+.card{
+    background-color: #222;
+}
+table{
+    display: table;
+    table-layout: fixed;
+}
+th{
+    display: table-cell;
+    align-items: center;
+}
+td{
+    display: table-cell;
+    vertical-align: middle;
+}
+.img-icons{
+    width: 2rem;
+}

@@ -10,8 +10,7 @@ button{
     margin: 1rem;
 }
 .rounded-image {
-    border-radius: 50%;
-    width: 5rem;
+    width: 20rem;
 }
 .image-div{
     display: flex;

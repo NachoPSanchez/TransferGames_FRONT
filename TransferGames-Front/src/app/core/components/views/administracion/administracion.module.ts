@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { EditJuegoComponent } from './edit-juego/edit-juego.component';
 
 
 
@@ -18,14 +20,16 @@ import { FormsModule } from '@angular/forms';
     AdminJuegosComponent,
     AdminUsersComponent,
     AdminNavbarComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditJuegoComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule,
     AdministracionRoutingModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   exports:[
     AdministracionComponent

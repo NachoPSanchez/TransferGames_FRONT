@@ -18,7 +18,6 @@ export class AdminUsersComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAll().subscribe(data=>{
       this.users = data;
-      console.log(this.users);
     });
   }
   editUser(idUser: number | undefined){

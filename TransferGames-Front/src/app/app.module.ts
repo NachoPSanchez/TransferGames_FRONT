@@ -12,7 +12,6 @@ import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { JuegosComponent } from './core/components/views/juegos/juegos.component';
 import { HomeComponent } from './core/components/views/home/home.component';
-import { ForoComponent } from './core/components/views/foro/foro.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ToastrModule } from 'ngx-toastr';
 import { JuegoComponent } from './core/components/views/juegos/juego/juego.component';
@@ -27,7 +26,6 @@ import { JuegoComponent } from './core/components/views/juegos/juego/juego.compo
     RegisterComponent,
     JuegosComponent,
     HomeComponent,
-    ForoComponent,
     JuegoComponent,
   ],
   imports: [

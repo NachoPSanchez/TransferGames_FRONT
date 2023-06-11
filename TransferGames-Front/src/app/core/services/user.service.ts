@@ -34,4 +34,7 @@ export class UserService {
     const headers = new HttpHeaders().set('Authorization',`Bearer ${token}`);
     return this.httpClient.get<UserResponse>(`${this.urlAdminUser}/${id}`, {headers});
   }
+  updateUser(user: UserResponse): Observable<UserResponse>{
+    return this.httpClient.put<UserResponse>(`${this.urlUser}/${user.id}`, user);
+  }
 }

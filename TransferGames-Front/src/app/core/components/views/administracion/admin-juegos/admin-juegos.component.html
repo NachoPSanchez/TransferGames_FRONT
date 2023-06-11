@@ -1,1 +1,34 @@
-<p>admin-juegos works!</p>
+<div class="container p-4">
+    <div class="card">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>URL</th>
+                    <th>Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let juego of juegos">
+                    <td><img [src]="getSafeImageUrl(juego.image)" alt="Imagen" class="rounded-image"></td>
+                    <td>{{juego.id}}</td>
+                    <td>{{juego.nombre}}</td>
+                    <td>{{juego.descripcion}}</td>
+                    <td>{{juego.direccion}}</td>
+                    <td>
+                        <button class="btn" title="Editar">
+                            <img src="assets/img/edit-64.png" alt="Editar" class="img-icons" (click)="editGame(juego.id)">
+                        </button>
+                        <button class="btn" title="Eliminar">
+                            <img src="assets/img/remove-64.png" alt="Eliminar" class="img-icons">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
