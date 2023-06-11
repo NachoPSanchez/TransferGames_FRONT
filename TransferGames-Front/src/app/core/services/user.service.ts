@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User, UserResponse } from '../models/user.interface';
+import { environment } from 'src/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,9 @@ export class UserService {
   }
   updateUser(user: UserResponse): Observable<UserResponse>{
     return this.httpClient.put<UserResponse>(`${this.urlUser}/${user.id}`, user);
+  }
+  editImg(id: number, userImg: UserResponse): Observable<UserResponse>{
+    let path = environment.baseUrl + '/user/' + id + '/image';
+    return this.httpClient.put<UserResponse>(path, userImg);
   }
 }
