@@ -62,8 +62,8 @@ export class EditUserComponent implements OnInit {
 
   openConfirmBox() {
     const newConfirmBox = new ConfirmBoxInitializer();
-
-    newConfirmBox.setTitle('¿Desea editar el usuario con id 1?');
+    let id = localStorage.getItem('editUser');
+    newConfirmBox.setTitle('¿Desea editar el usuario con id ' + id + '?');
     newConfirmBox.setMessage('Esta acción es irreversible');
 
     // Choose layout color type

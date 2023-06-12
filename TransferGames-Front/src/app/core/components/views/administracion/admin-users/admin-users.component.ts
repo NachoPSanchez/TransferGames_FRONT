@@ -66,7 +66,7 @@ export class AdminUsersComponent implements OnInit {
   openConfirmBox(id: number) {
     const newConfirmBox = new ConfirmBoxInitializer();
 
-    newConfirmBox.setTitle('¿Está seguro de que desea eliminar el usuario con id 1?');
+    newConfirmBox.setTitle('¿Está seguro de que desea eliminar el usuario con id ' + id + ' ?');
     newConfirmBox.setMessage('Esta acción es irreversible');
 
     // Choose layout color type

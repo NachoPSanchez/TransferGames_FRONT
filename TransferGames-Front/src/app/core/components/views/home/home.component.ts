@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private firstTimeService: FirstTimeService, toastrService: ToastrService, private authService:AuthService) {
     this.isFirstTime = this.firstTimeService.isFirstTime();
     if(this.isFirstTime ){
-      toastrService.info('Login to enjoy full web', 'Remember', {
+      toastrService.info('Inicia sesión para disfrutar la web al completo', 'Recuerda', {
         timeOut: 4000,
       });
     }    

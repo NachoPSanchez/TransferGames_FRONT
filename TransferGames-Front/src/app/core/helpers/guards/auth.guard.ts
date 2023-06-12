@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         if (this.authService.isLogged()) {
             this.state = true;
         } else {
-            this.toastr.error('You are not logged in.', 'Oops...', {
+            this.toastr.error('No has iniciado sesión aún', 'Oops...', {
                 timeOut: 3000,
               });
             this.state = false;

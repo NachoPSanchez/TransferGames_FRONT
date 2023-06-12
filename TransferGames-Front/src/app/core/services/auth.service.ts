@@ -24,19 +24,23 @@ export class AuthService {
     let url=environment.baseUrl+'/auth';
     return this.http.get<AuthResponse>(url);
   }
+
   public getToken(): string | null{
     return localStorage.getItem('token');
   }
+
   public isLogged(): boolean{
     if(this.getToken()){
       return true;
     }
     return false;
   }
+
   public logOut():void{
     window.localStorage.clear();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
+
   login(data: LoginCredentials){
     let url=environment.baseUrl+'/login';
     const body = {
@@ -45,6 +49,7 @@ export class AuthService {
     }
     return this.http.post<AuthResponse>(url,body);
   }
+
   getUserByEmail(email:string){
     let url=environment.baseUrl+'/user';
     const body = {
@@ -63,6 +68,7 @@ export class AuthService {
     }
     return this.http.post<UserRegister>(url,body);
   }
+  
   loggedUser():Observable<UserResponse>{
     let url=environment.baseUrl+"api/v1/auth";
    

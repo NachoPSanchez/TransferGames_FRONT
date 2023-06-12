@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/core/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -11,40 +12,32 @@ import Swal from 'sweetalert2';
 export class HeaderComponent {
   title = 'header'
   isDropdownOpen = false;
- 
-  constructor(private authService: AuthService, private router: Router){}
-  menuVariable:boolean = false;
-  menu_icon_variable:boolean= false;
+
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
+  menuVariable: boolean = false;
+  menu_icon_variable: boolean = false;
 
 
-openMenu(){
-  this.menuVariable =! this.menuVariable ;
-  this.menu_icon_variable =! this.menu_icon_variable;
-}
-isLoggedIn(){
-  return this.authService.getToken();
-}
-logout(){
-  Swal.fire({
-    icon: 'success',
-    title: 'Logged out',
-    text: 'You have logged out successfully',
-    confirmButtonText: 'Ok'
-}).then(
-    (result) => {
-        if (result.isConfirmed) {
-            this.router.navigate(['/home']);
-        }
-    }
-);
-  this.authService.logOut();
-}
+  openMenu() {
+    this.menuVariable = !this.menuVariable;
+    this.menu_icon_variable = !this.menu_icon_variable;
+  }
+  isLoggedIn() {
+    return this.authService.getToken();
+  }
+  logout() {
+    this.router.navigateByUrl("/home/");
+    this.toastr.info("Esperamos verte pronto de nuevo ", 'Se ha cerrado la sesión', {
+      timeOut: 4000,
+    });
+    this.authService.logOut();
+  }
 
-toggleDropdown() { //desplegable del header
-  this.isDropdownOpen = !this.isDropdownOpen;
-}
+  toggleDropdown() { //desplegable del header
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
 
-getUserROL(): string | null{
-  return localStorage.getItem('user_ROL');
-}
+  getUserROL(): string | null {
+    return localStorage.getItem('user_ROL');
+  }
 }
