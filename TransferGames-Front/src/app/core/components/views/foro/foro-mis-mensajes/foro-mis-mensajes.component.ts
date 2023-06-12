@@ -18,7 +18,6 @@ export class ForoMisMensajesComponent implements OnInit {
     let id = this.userService.findIdUser();
     this.foroService.findAllMensajesByIdUser(id).subscribe(data => {
       this.mensajes = data;
-      console.log(this.mensajes);
     });
   }
 

@@ -1,1 +1,16 @@
-<p>foro-mis-respuestas works!</p>
+<div class="container p-4">
+    <div class="card p-2 mb-5" *ngFor="let respuesta of respuestas">
+        <div class="asunto d-flex">
+            <h3>Asunto: </h3>
+            <h3>{{respuesta.titulo}}</h3>
+        </div>
+        <div class="mensaje d-flex">
+            <p>Respuesta: </p>
+            <p>{{respuesta.respuesta}}</p>
+        </div>
+        <div class="fecha d-flex">
+            <p>Fecha: </p>
+            <p>{{respuesta.date}}</p>
+        </div>
+    </div>
+</div>

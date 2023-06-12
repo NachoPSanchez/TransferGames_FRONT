@@ -2,7 +2,14 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-center">
             <ul class="nav">
-                <li><a routerLink="usuarios" class="px-4">Usuarios</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-bs-toggle="dropdown" routerLink="usuarios" role="button" aria-haspopup="true" aria-expanded="false">
+                        Usuarios
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" routerLink="usuarios/create-user">Crear Usuario</a>
+                    </div>
+                </li>
                 <li><a routerLink="juegos" class="px-4">Juegos</a></li>
             </ul>
         </div>

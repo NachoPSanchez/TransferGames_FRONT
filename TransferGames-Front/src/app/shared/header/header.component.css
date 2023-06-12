@@ -2,6 +2,8 @@ header {
   background-color: #222;
   animation: brillo 20s ease-in-out infinite;
   box-shadow: 0 4px 6px rgb(216, 1, 1), 0 0 12px rgb(33, 8, 255);
+  position: relative;
+  z-index: 1000;
 }
 @keyframes brillo {
   0% {
@@ -43,6 +45,15 @@ a:hover {
 }
 li{
   align-items: center;
+  list-style: none;
+  font-family: 'Russo One', sans-serif;
+}
+.dropdown-menu{
+  margin-top: 2rem;
+  background-color: #222;
+  color: aliceblue;
+  position: relative;
+  z-index: 2000 !important;
 }
 a{
   color:#fff;

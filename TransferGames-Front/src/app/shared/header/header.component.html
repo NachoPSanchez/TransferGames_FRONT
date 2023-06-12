@@ -9,8 +9,15 @@
         <li><a routerLink="puntuaciones" class="px-4">Puntuaciones</a></li>
       </ul>
       <div class="text-end" *ngIf="isLoggedIn()">
-        <button type="button"  (click)="logout()" class="btn btn-warning">Sign off</button>
-        <h2></h2>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Mi perfil
+          </a>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="editar-perfil">Editar perfil</a>
+              <a class="dropdown-item" (click)="logout()">Sign off</a>
+          </div>
+      </li>
       </div>
       <div class="text-end" *ngIf="!isLoggedIn()">
         <button type="button"  routerLink="login"  class="btn btn-warning">Login</button>
@@ -32,8 +39,15 @@
         <li><a routerLink="administracion" class="px-4">Administración</a></li>
       </ul>
       <div class="text-end" *ngIf="isLoggedIn()">
-        <button type="button"  (click)="logout()" class="btn btn-warning">Sign off</button>
-        <h2></h2>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Mi perfil
+          </a>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="editar-perfil">Editar perfil</a>
+              <a class="dropdown-item" (click)="logout()">Sign off</a>
+          </div>
+      </li>
       </div>
       <div class="text-end" *ngIf="!isLoggedIn()">
         <button type="button"  routerLink="login"  class="btn btn-warning">Login</button>

@@ -1,0 +1,29 @@
+<div class="container p-4 d-flex justify-content-center">
+    <div class="card p-3 align-items-center">
+      <form (submit)="registerAuth()">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nameInput" [(ngModel)]="user.name" name="name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="emailInput" [(ngModel)]="user.email" name="email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="passwordInput" [(ngModel)]="user.password" name="password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Rol</label>
+        <select class="form-select" id="rolInput" [(ngModel)]="user.roleId" name="roleId">
+          <option [value]="'ADMIN'" [selected]="user.roleId === 'ADMIN'">ADMIN</option>
+          <option [value]="'USER'" [selected]="user.roleId === 'USER'">USER</option>
+        </select>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+  

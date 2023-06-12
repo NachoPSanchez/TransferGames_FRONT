@@ -19,8 +19,8 @@
     <div class="mb-3">
       <label class="form-label">Rol</label>
       <select class="form-select" id="rolInput" [(ngModel)]="user.roleId" name="roleId">
-        <option [value]="'ADMIN'" [selected]="!user.roleId">ADMIN</option>
-        <option [value]="'USER'">USER</option>
+        <option [value]="'ADMIN'" [selected]="user.roleId === 'ADMIN'">ADMIN</option>
+        <option [value]="'USER'" [selected]="user.roleId === 'USER'">USER</option>
       </select>
     </div>
     <div class="d-flex justify-content-center">

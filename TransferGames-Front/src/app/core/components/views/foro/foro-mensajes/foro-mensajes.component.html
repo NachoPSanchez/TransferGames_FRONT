@@ -16,18 +16,23 @@
             <nz-collapse id="controlColor" [nzBordered]="false">
                 <nz-collapse-panel #p *ngFor="let panel of panels; let isFirst = first" [nzHeader]="panel.name"
                     [nzActive]="panel.active" [ngStyle]="panel.customStyle" [nzExpandedIcon]="panel.icon">
-                    <div class="card respuestas" *ngFor="let respuesta of respuestas">
-                        <div class="asunto d-flex justify-content-center">
-                            <h4>Asunto: </h4>
-                            <h4>{{respuesta.titulo}}</h4>
+                        <div class="card respuestas" *ngFor="let respuesta of respuestas">
+                            <div class="asunto d-flex justify-content-center">
+                                <h4>Asunto: </h4>
+                                <h4>{{respuesta.titulo}}</h4>
+                            </div>
+                            <div class="respuesta d-flex justify-content-center">
+                                <p>Respuesta: </p>
+                                <p>{{respuesta.respuesta}}</p>
+                            </div>
+                            <div class="fecha d-flex justify-content-center">
+                                <p>Fecha: </p>
+                                <p>{{respuesta.date}}</p>
+                            </div>
                         </div>
-                        <div class="respuesta d-flex justify-content-center">
-                            <p>Respuesta: </p>
-                            <p>{{respuesta.respuesta}}</p>
-                        </div>
-                        <div class="fecha d-flex justify-content-center">
-                            <p>Fecha: </p>
-                            <p>{{respuesta.date}}</p>
+                    <div *ngIf="!respuestas || respuestas.length === 0">
+                        <div class="d-flex justify-content-center">
+                            <p>No existen respuestas para esta pregunta</p>
                         </div>
                     </div>
                     <ng-template let-active>

@@ -27,4 +27,8 @@ export class ForoService {
     let url = environment.baseUrl + '/users/' + idUser + '/mensajes';
     return this.http.get<Mensaje[]>(url);
   }
+  findAllRespuestasByIdUser(idUser: number): Observable<Respuesta[]> {
+    let url = environment.baseUrl + '/users/' + idUser + '/mensajes/respuestas';
+    return this.http.get<Respuesta[]>(url);
+  }
 }

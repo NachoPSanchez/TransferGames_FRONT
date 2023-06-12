@@ -31,23 +31,28 @@ export class AdminUsersComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + imageBase64);  
   }
   deleteUser(id: number){
-    this.userService.deleteUser(id).subscribe({
-      next: () => {
-
-      },
-      error: (err) => {
-        this.toastr.error(err.error.message, 'Error', {
-          timeOut: 4000,
-        });
-      },
-      complete: () => {
-        this.toastr.success("con exito", 'User eliminado', {
-          timeOut: 4000,
-        });
-        this.userService.getAll().subscribe(data=>{
-          this.users = data;
-        });
-      }
-    });
+    let idUser = this.userService.findIdUser();
+    if(idUser !== id){
+      this.userService.deleteUser(id).subscribe({
+        next: () => {
+  
+        },
+        error: (err) => {
+          this.toastr.error(err.error.message, 'Error', {
+            timeOut: 4000,
+          });
+        },
+        complete: () => {
+          this.toastr.success("con exito", 'User eliminado', {
+            timeOut: 4000,
+          });
+          this.userService.getAll().subscribe(data=>{
+            this.users = data;
+          });
+        }
+      });
+    }else{
+      this.toastr.info("No puedes eliminar tu propio user desde administración","Info");
+    }
 }
 }

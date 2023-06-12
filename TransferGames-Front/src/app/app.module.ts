@@ -22,6 +22,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { AlertFill, AlertOutline, DoubleRightOutline, PlayCircleFill, PlayCircleOutline, RightOutline } from '@ant-design/icons-angular/icons';
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { EditPerfilComponent } from './core/components/views/edit-perfil/edit-perfil.component';
 
 
 const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
@@ -39,6 +40,7 @@ const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutl
     HomeComponent,
     JuegoComponent,
     PuntuacionesComponent,
+    EditPerfilComponent,
   ],
   imports: [
     BrowserModule,

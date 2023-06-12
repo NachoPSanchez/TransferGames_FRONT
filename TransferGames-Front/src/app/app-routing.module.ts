@@ -8,6 +8,7 @@ import { RegisterComponent } from './shared/register/register.component';
 import { HomeComponent } from './core/components/views/home/home.component';
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
 import { JuegoComponent } from './core/components/views/juegos/juego/juego.component';
+import { EditPerfilComponent } from './core/components/views/edit-perfil/edit-perfil.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'foro',
   loadChildren: () => 
   import('./core/components/views/foro/foro.module').then((m) => m.ForoModule)},
+  {path:'editar-perfil', component:EditPerfilComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

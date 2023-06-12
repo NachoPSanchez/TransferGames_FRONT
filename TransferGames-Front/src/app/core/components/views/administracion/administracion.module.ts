@@ -11,6 +11,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { EditJuegoComponent } from './edit-juego/edit-juego.component';
+import { CreateUserComponent } from './create-user/create-user.component';
 
 
 
@@ -21,7 +22,8 @@ import { EditJuegoComponent } from './edit-juego/edit-juego.component';
     AdminUsersComponent,
     AdminNavbarComponent,
     EditUserComponent,
-    EditJuegoComponent
+    EditJuegoComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,

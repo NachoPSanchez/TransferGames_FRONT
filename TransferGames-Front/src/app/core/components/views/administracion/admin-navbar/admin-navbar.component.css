@@ -16,5 +16,12 @@ li{
     align-items: center;
 }
 header{
+    box-shadow: 0 1px 2px #621536;
+}
+.dropdown-menu{
+    background-color: #222;
     box-shadow: 0 1px 2px rgb(216, 1, 1);
+}
+.dropdown{
+    margin-right: 20px;
 }
