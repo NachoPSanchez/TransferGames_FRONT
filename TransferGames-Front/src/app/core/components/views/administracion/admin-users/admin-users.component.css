@@ -20,3 +20,12 @@ td{
 .img-icons{
     width: 2rem;
 }
+
+::ng-deep .ed-btn.ed-btn-md.ed-btn-secondary.ng-tns-c3193452548-0.ng-star-inserted{
+    background: #6E8894;
+    border-color: #6E8894;
+}
+
+::ng-deep .ngx-awesome-popup-overlay.confirm-box-overlay{
+    background: transparent;
+}

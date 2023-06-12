@@ -18,10 +18,13 @@
                     <td>{{user.email}}</td>
                     <td>
                         <button class="btn" title="Editar">
-                            <img src="assets/img/edit-64.png" alt="Editar" class="img-icons" (click)="editUser(user.id)">
+                            <img src="assets/img/edit-64.png" alt="Editar" class="img-icons"
+                                (click)="editUser(user.id)">
                         </button>
+
                         <button class="btn" title="Eliminar">
-                            <img src="assets/img/remove-64.png" alt="Eliminar" class="img-icons" (click)="deleteUser(user.id)">
+                            <img src="assets/img/remove-64.png" alt="Eliminar" class="img-icons"
+                                (click)="openConfirmBox(user.id)">
                         </button>
                     </td>
                 </tr>
@@ -29,4 +32,3 @@
         </table>
     </div>
 </div>
-

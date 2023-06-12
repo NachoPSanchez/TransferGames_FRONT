@@ -17,3 +17,7 @@ button{
     display: flex;
     justify-content: center;
 }
+
+::ng-deep .ngx-awesome-popup-overlay.confirm-box-overlay{
+    background: transparent;
+}

@@ -22,6 +22,7 @@
     "@angular/router": "^16.0.0",
     "@ant-design/icons-angular": "^16.0.0",
     "@auth0/angular-jwt": "^5.1.2",
+    "@costlydeveloper/ngx-awesome-popup": "^3.2.0",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.4",
     "ng-zorro-antd": "^16.0.0",

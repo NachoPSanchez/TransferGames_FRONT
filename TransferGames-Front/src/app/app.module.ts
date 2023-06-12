@@ -23,6 +23,9 @@ import { AlertFill, AlertOutline, DoubleRightOutline, PlayCircleFill, PlayCircle
 import { PuntuacionesComponent } from './core/components/views/puntuaciones/puntuaciones.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { EditPerfilComponent } from './core/components/views/edit-perfil/edit-perfil.component';
+import { NgxAwesomePopupModule,DialogConfigModule,ConfirmBoxConfigModule,ToastNotificationConfigModule} from '@costlydeveloper/ngx-awesome-popup';
+
+
 
 
 const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutline,PlayCircleFill, AlertOutline, AlertFill ];
@@ -52,7 +55,11 @@ const icons: IconDefinition[] = [ RightOutline,DoubleRightOutline,PlayCircleOutl
     NzButtonModule,
     NzCollapseModule,
     NzIconModule.forRoot(icons),     
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
+    DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
+    ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.
+    ToastNotificationConfigModule.forRoot() // Needed for instantiating toast notifications.
   ],
   providers: [],
   bootstrap: [AppComponent]
